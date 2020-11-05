@@ -1,5 +1,5 @@
 import PhotoServices from "../services/PhotoServices";
-import getAllPhotosUseCase from "./GetAllPhotosUseCase";
+import { getAllPhotosUseCase, deletePhotoUseCase } from "./GetAllPhotosUseCase";
 import API_URL from "../services/PhotoServicesConfig";
 
 class PhotosUseCases {
@@ -7,6 +7,10 @@ class PhotosUseCases {
 
   async getAll() {
     return await getAllPhotosUseCase(this.photoService);
+  }
+
+  async delete(id) {
+    return await deletePhotoUseCase(this.photoService, id);
   }
 }
 

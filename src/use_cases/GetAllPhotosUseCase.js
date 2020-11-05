@@ -1,5 +1,7 @@
-async function getAllPhotosUseCase(service) {
+export async function getAllPhotosUseCase(service) {
   return service.all();
 }
 
-export default getAllPhotosUseCase;
+export async function deletePhotoUseCase(service, id) {
+  return service.delete(id);
+}
