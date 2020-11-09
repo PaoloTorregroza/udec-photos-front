@@ -9,8 +9,8 @@ import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import { IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
 import PhotosUseCases from "../use_cases/UseCasesConfig";
+import NewEditPhotoDialog from "./NewEditPhotoDialog";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,8 +43,8 @@ export default function Photo(props) {
     });
   };
 
-  const handleEdit = () => {
-    console.log("EDIT");
+  const updateOrCreate = () => {
+    props.onUpdateOrCreate();
   };
 
   return (
@@ -64,9 +64,7 @@ export default function Photo(props) {
         </Typography>
       </CardContent>
       <CardActions>
-        <IconButton onClick={handleEdit} arial-label="edit">
-          <EditIcon />
-        </IconButton>
+        <NewEditPhotoDialog onFinishCreate={updateOrCreate} type="edit" photo={props.photo} />
         <IconButton onClick={handleDelete} arial-label="delete">
           <DeleteIcon />
         </IconButton>

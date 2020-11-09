@@ -15,8 +15,8 @@ class PhotoServices {
     return res.data;
   }
 
-  async update(photo) {
-    const res = await axios.put(`${this.apiUrl}/photo/`, photo);
+  async update(photo, id) {
+    const res = await axios.put(`${this.apiUrl}/photo/${id}`, photo);
     return res.data;
   }
 

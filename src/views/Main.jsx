@@ -5,7 +5,7 @@ import TopBar from "../components/TopBar";
 import "./main.css";
 
 class Main extends React.Component {
-  useCases = new PhotosuseCases();
+   useCases = new PhotosuseCases();
   state = {
     renderPhotos: [],
   };
@@ -24,10 +24,10 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <TopBar />
+        <TopBar onUpdateOrCreate={this.loadAll} />
         <div className="photo-container">
           {this.state.renderPhotos.map((photo) => (
-            <Photo key={photo._id} photo={photo} onDelete={this.loadAll} />
+            <Photo key={photo._id} photo={photo} onDelete={this.loadAll} onUpdateOrCreate={this.loadAll} />
           ))}
         </div>
       </div>
